@@ -4,3 +4,9 @@
   tasks:
     - name: Test Connection
       win_ping:
+
+
+# Command line: ansible -m win_ping all --user vagrant --ask-pass -i inventory
+# Error: winrm or requests is not installed: No module named 'winrm'
+# Solution: sudo python3 -m pip install "pywinrm>=0.2.2"
+# Solution if on RHEL 7: sudo yum install python2-winrm.noarch -y
