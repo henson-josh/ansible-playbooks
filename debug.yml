@@ -1,0 +1,6 @@
+- name: Debug varaibles
+  hosts: all
+  tasks:
+    - name: Persistent Timeout
+      ansible.builtin.debug:
+        msg: "The persistent timeout is '{{ lookup('ansible.builtin.env', 'ANSIBLE_PERSISTENT_COMMAND_TIMEOUT') }}'seconds."
