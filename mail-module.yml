@@ -1,0 +1,21 @@
+# Mail Module that will work with playbook being used in Tower/Controller
+# ansible-galaxy collection install community.general
+# Copy the ~/.ansible/collections directory to /usr/share/ansible/plugins/modules and /usr/share/ansible/collections
+
+- name: file creation to test playbook
+  hosts: all
+  tasks:
+    - name: Leaving a mark
+      command: "touch /tmp/test"
+
+    - name: send the e-mail
+      mail:
+        host: smtp.gmail.com
+        port: 465
+        username: john.smith@gmail.com
+        password: IT Dept <itdept@example.com>
+        to: whomitmay@conern.com
+        subject: Ansible-Test
+        body: |
+          Test E-mail Notification
+      run_once: True
