@@ -1,0 +1,6 @@
+- name: Windows Test Playbook
+  hosts: all
+  gather_facts: True
+  tasks:
+    - name: Leaving a mark
+      win_command: cmd.exe /k type nul > C:\Users\vagrant\Desktop\test_playbook.txt
