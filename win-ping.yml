@@ -1,0 +1,6 @@
+- name: Windows Test Playbook
+  hosts: all
+  gather_facts: True
+  tasks:
+    - name: Test Connection
+      win_ping:
