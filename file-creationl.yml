@@ -1,0 +1,5 @@
+- name: file creation to test playbook
+  hosts: all 
+  tasks:
+    - name: Leaving a mark
+      command: "touch /tmp/test"
