@@ -1,0 +1,8 @@
+- name: file creation test playbook plus 30 second stall
+  hosts: all 
+  tasks:
+    - name: Leaving a mark
+      command: "touch /tmp/test1"
+    - name: stall
+      pause:
+        seconds: 30
