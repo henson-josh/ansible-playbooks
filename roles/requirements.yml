@@ -1,3 +1,0 @@
-- src: https://github.com/henson-josh/ansible-playbooks.git
-  name: configure_ssh
-  scm: git
