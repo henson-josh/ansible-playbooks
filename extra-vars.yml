@@ -1,0 +1,6 @@
+- name: Testing using extra variables
+  hosts: all
+  tasks:
+         - name: Creating a file in the /tmp folder
+           ansible.builtin.shell:
+                   cmd: echo hello > /tmp/"{{ name }}"
