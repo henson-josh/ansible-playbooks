@@ -7,8 +7,8 @@
       community.general.mail:
         host: smtp.gmail.com
         port: 587
-        username: jdh0986@gmail.com
-        password: jw7&f5jSU$f2*Y
+        username: fakeemail@gmail.com
+        password: fakepassword
         to: Josh Henson <jdh0986@gmail.com>
         subject: Ansible-report
         body: This will probably fail to work.
