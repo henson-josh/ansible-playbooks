@@ -1,0 +1,15 @@
+---
+- name: Test playbook
+  hosts: localhost 
+  tasks:
+
+    - name: Sending an e-mail using Gmail SMTP servers
+      community.general.mail:
+        host: smtp.gmail.com
+        port: 587
+        username: jdh0986@gmail.com
+        password: jw7&f5jSU$f2*Y
+        to: Josh Henson <jdh0986@gmail.com>
+        subject: Ansible-report
+        body: This will probably fail to work.
+      delegate_to: localhost
