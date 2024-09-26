@@ -1,0 +1,9 @@
+---
+- name: Test SSH Timeout
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Attempt to connect to unreachable host
+      ansible.builtin.command:
+        cmd: whoami
+      ignore_errors: yes
