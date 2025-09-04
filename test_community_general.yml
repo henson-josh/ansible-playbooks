@@ -1,0 +1,33 @@
+---
+- name: Sanity test for community.general
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - community.general
+
+  tasks:
+    - name: Show a value from a community.general lookup plugin
+      ansible.builtin.debug:
+        msg: "random_string={{ lookup('community.general.random_string', length=12, special=False) }}"
+
+    - name: Create a tiny test file
+      ansible.builtin.copy:
+        dest: /tmp/cg_test.txt
+        content: "ok"
+
+    - name: Archive the file using community.general.archive
+      community.general.archive:
+        path: /tmp/cg_test.txt
+        dest: /tmp/cg_test.tar.gz
+        format: gz
+
+    - name: Verify archive exists
+      ansible.builtin.stat:
+        path: /tmp/cg_test.tar.gz
+      register: st
+
+    - name: Assert archive was created
+      ansible.builtin.assert:
+        that:
+          - st.stat.exists
